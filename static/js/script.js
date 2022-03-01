@@ -58,3 +58,6 @@ $(document).ready(function() {
 }); 
 // jquery end
 
+
+//closing the alert of form in registration after 5 seconds 
+ 

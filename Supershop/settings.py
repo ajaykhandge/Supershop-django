@@ -139,3 +139,19 @@ MEDIA_ROOT = BASE_DIR/'media'
 
 #custom user Model
 AUTH_USER_MODEL = 'accounts.Account'
+
+
+#django messages for form error and validation
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    
+}
+
+
+#configuration of SMTP for email client
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587   # for gmail 
+EMAIL_HOST_USER = 'ajaykhandge88@gmail.com'
+EMAIL_HOST_PASSWORD = 'hyhswlswyrkjdbwr'
+EMAIL_USE_TLS = True
