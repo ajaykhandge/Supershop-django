@@ -2,11 +2,7 @@ from django.db import models
 from category.models import Category
 from accounts.models import Account
 from django.db.models import Avg,Count
-
-
 from django.shortcuts import reverse
-# Create your models here.
-
 
 class Product(models.Model):
     product_name = models.CharField(max_length=200,unique=True)
@@ -40,6 +36,16 @@ class Product(models.Model):
             count = int(reviews['count'])
         return count
 
+class ProductGallery(models.Model):
+    product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
+    image = models.ImageField(upload_to = 'store/product',max_length=255)
+
+    class Meta:
+        verbose_name = 'productgallery'
+        verbose_name_plural = 'productgallery'
+
+    def __str__(self):
+        return self.product.product_name
 
 
 #this managers will allow to bring only color and sizes in the prod description to select size and color
