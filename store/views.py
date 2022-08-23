@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from .models import Product,ReviewRating
+from .models import Product,ReviewRating,ProductGallery
 from category.models import Category
 from carts.models import CartItem
 from carts.views import _cart_id
@@ -9,6 +9,7 @@ from django.db.models import Q   #Q is QuerySet for filter search views
 from .forms import ReviewForm
 from django.contrib import messages
 from orders.models import OrderProduct
+
 
  
 
@@ -60,6 +61,9 @@ def product_detail(request,category_slug,product_slug):
 
     # create the reviews 
     reviews = ReviewRating.objects.filter(product__id = product.id,status=True)
+    #product gallery
+
+    product_gallery = ProductGallery.objects.filter(product_id=product.id)
 
         
 
@@ -68,6 +72,7 @@ def product_detail(request,category_slug,product_slug):
         'orderproduct' :orderproduct,
         'product': product,
         'product_in_cart': product_in_cart,
+        'product_gallery':product_gallery,
     }
 
     return render(request,'store/product_detail.html',context)

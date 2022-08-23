@@ -148,6 +148,15 @@
                             <span class="price">$1{{product.price}}</span>
                             <del class="price-old">$1980</del>
                         </div> <!-- price-wrap.// -->
+                        <div class="rating-star">
+                            <span>
+                                <i class="fa fa-star{% if product.average_rating < 0.5 %}-o{%elif product.average_rating >= 0.5 and product.average_rating < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if product.average_rating < 1.5 %}-o{%elif product.average_rating >= 1.5 and product.average_rating < 2  %}-half-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if product.average_rating < 2.5 %}-o{%elif product.average_rating >= 2.5 and product.average_rating < 3  %}-half-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if product.average_rating < 3.5 %}-o{%elif product.average_rating >= 3.5 and product.average_rating < 4  %}-half-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if product.average_rating < 4.5 %}-o{%elif product.average_rating >= 4.5 and product.average_rating < 5  %}-half-o {% endif %}" aria-hidden="true"></i>
+                             </span>
+                            </div> 
                     </div>
                     <a href="{{ product.get_url }}" class="btn btn-block btn-primary">View Details </a>
                 </figcaption>
